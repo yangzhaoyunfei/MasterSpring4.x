@@ -1,24 +1,21 @@
 package com.smart.domain;
 
-import java.util.Date;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import javax.persistence.*;
+import java.util.Date;
+
+/**
+ * Description:
+ * PO 类都是一堆属性的集合,通过 JPA 注解来配置 PO 类与数据表的映射关系
+ * post(普通回复帖子) PO类(持久化类),post/mainpost,是一张表,区别: post_type: 1,MainPost; 2,Post
+ * Inheritance 注解指定 PO 映射继承关系: TABLE_PER_CLASS,每个类一张表;JOINED,连接的子类;SINGLE_TABLE,多个类层次结构对应一张表.
+ * DiscriminatorColumn 注解定义了辨别符列
+ * DiscriminatorValue 在多个类对应一张表时,通过该值辨别这个类.
+ * @author tangzhongwei tangzw@zjbdos.com
+ * @date
+ */
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "t_post")
@@ -26,86 +23,91 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @DiscriminatorColumn(name = "post_type", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("1")
 public class Post extends BaseDomain {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "post_id")
-	private int postId;
 
-	@Column(name = "post_title")
-	private String postTitle;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id")
+    private int postId;
 
-	@Column(name = "post_text")
-	private String postText;
+    @Column(name = "post_title")
+    private String postTitle;
 
-	@Column(name = "board_id")
-	private int boardId;
+    @Column(name = "post_text")
+    private String postText;
 
-	@Column(name = "create_time")
-	private Date createTime;
+    @Column(name = "board_id")
+    private int boardId;
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
-	
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
-    @JoinColumn(name="topic_id")
-	private Topic topic;
+    @Column(name = "create_time")
+    private Date createTime;
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    /**
+     * ManyToOne 注解定义了多对一关系
+     * JoinColumn 注解定义了多对一的关联规则;没有该注解则自动处理,在系统中创建连接列
+     */
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "topic_id")
+    private Topic topic;
 
-	public int getBoardId() {
-		return boardId;
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public int getPostId() {
-		return postId;
-	}
+    public int getBoardId() {
+        return boardId;
+    }
 
-	public void setPostId(int postId) {
-		this.postId = postId;
-	}
+    public void setBoardId(int boardId) {
+        this.boardId = boardId;
+    }
 
-	public String getPostText() {
-		return postText;
-	}
+    public int getPostId() {
+        return postId;
+    }
 
-	public void setPostText(String postText) {
-		this.postText = postText;
-	}
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
 
-	public String getPostTitle() {
-		return postTitle;
-	}
+    public String getPostText() {
+        return postText;
+    }
 
-	public void setPostTitle(String postTitle) {
-		this.postTitle = postTitle;
-	}
+    public void setPostText(String postText) {
+        this.postText = postText;
+    }
 
-	public Topic getTopic() {
-		return topic;
-	}
+    public String getPostTitle() {
+        return postTitle;
+    }
 
-	public void setTopic(Topic topic) {
-		this.topic = topic;
-	}
+    public void setPostTitle(String postTitle) {
+        this.postTitle = postTitle;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public Topic getTopic() {
+        return topic;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 }
+

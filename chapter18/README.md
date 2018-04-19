@@ -21,6 +21,7 @@ xiaochun-service.xml,,Spring配置文件
 ### 持久层(dao包)
 持久层的程序
 xiaochun-dao.xml,Spring配置文件
+一般来说,我们将PO和DAO的类统一划归到持久层中,持久层既负责将PO持久化到数据库中,也负责从数据库中加载数据到PO对象中
 
 #### 领域对象(domain包,PO/VO/DTO...)
 由于PO会在多个层中出现,因此我们为其提供一个单独的domain包

@@ -11,15 +11,10 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- *<br>
- * <b>类描述:</b>
- * 
- * <pre>
- * 主题对应的主题帖
- * </pre>
- * 
- * @see
- *@since
+ * Description: 主题对应的主题帖 PO类(持久化类)
+ *
+ * @author tangzhongwei tangzw@zjbdos.com
+ * @date
  */
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
