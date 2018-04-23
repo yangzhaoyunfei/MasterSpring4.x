@@ -1,19 +1,14 @@
 package com.smart.domain;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
 
 /**
  * Description: 主题对应的主题帖 PO类(持久化类)
  *
- * @author tangzhongwei tangzw@zjbdos.com
+ * @author yangzhaoyunfei yangzhaoyunfei@qq.com
  * @date
  */
 @Entity

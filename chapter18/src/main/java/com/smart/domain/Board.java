@@ -14,7 +14,7 @@ import java.util.Set;
  * Table 为PO类指定对应的数据表\目录\schema的名字
  * Cache 为PO类设置缓存策略(分别是NONE, READ_ONLY, READ_WRITE, NONSTRICT_READ_WRITE, TRANSACTIONAL)
  *
- * @author tangzhongwei tangzw@zjbdos.com
+ * @author yangzhaoyunfei yangzhaoyunfei@qq.com
  * @date 2018/4/20
  */
 @Entity

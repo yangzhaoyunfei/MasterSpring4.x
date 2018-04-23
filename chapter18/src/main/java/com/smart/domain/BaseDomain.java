@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Description: 所有 PO 的基类,实现了 Serializable 接口,以便 JVM 可以序列化 PO 实例,为通过流发送,缓存,集群等功能提供便利.
  *
- * @author tangzhongwei tangzw@zjbdos.com
+ * @author yangzhaoyunfei yangzhaoyunfei@qq.com
  * @date 2018/4/20
  */
 public class BaseDomain implements Serializable {

@@ -13,7 +13,8 @@ import java.util.Date;
  * Inheritance 注解指定 PO 映射继承关系: TABLE_PER_CLASS,每个类一张表;JOINED,连接的子类;SINGLE_TABLE,多个类层次结构对应一张表.
  * DiscriminatorColumn 注解定义了辨别符列
  * DiscriminatorValue 在多个类对应一张表时,通过该值辨别这个类.
- * @author tangzhongwei tangzw@zjbdos.com
+ *
+ * @author yangzhaoyunfei yangzhaoyunfei@qq.com
  * @date
  */
 @Entity
