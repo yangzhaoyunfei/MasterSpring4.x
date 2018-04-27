@@ -7,7 +7,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Description: 论坛主题(主题帖)PO类,包含主题贴的作者,所属板块,创建时间,浏览数,回复数,等
+ * Description: 论坛主题PO类,包含主题贴的作者,所属板块,创建时间,浏览数,回复数,等
+ * 主题下面有主题帖,和回复贴
  *
  * @author yangzhaoyunfei yangzhaoyunfei@qq.com
  * @date 2018/4/24
