@@ -111,7 +111,7 @@ public class UserService {
 	}
 	
 	/**
-	 * 登陆成功
+	 * 登陆成功,保存日志
 	 * @param user
 	 */
 	public void loginSuccess(User user) {
