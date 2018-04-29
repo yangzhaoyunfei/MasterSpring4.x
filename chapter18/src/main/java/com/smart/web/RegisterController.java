@@ -13,29 +13,32 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 用户注册控制器
+ * Description: 用户注册控制器
+ *
+ * @author yangzhaoyunfei yangzhaoyunfei@qq.com
+ * @date 2018/4/30
  */
 @Controller
 public class RegisterController extends BaseController {
-    /**
-     * Spring团队建议的,基于构造函数的自动注入
-     */
+
     private UserService userService;
 
     /**
-     * Spring团队建议的,基于构造函数的自动注入
+     * Spring团队建议的,基于构造函数的自动注入,(自动注入有:字段注入,settr函数注入,constructor函数注入)
      */
     @Autowired
-    public void setUserService(UserService userService) {
+    public RegisterController(UserService userService) {
         this.userService = userService;
     }
 
     /**
      * 用户登录
      *
+     * 当表单信息提交到这里时,Spring MVC 自动进行数据绑定
+     *
      * @param request
      * @param user    注册表单对应的user
-     * @return
+     * @return 数据模型 和 视图
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView register(HttpServletRequest request, User user) {
